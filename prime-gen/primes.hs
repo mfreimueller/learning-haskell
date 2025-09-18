@@ -7,10 +7,19 @@
 --   | otherwise = isPrime n (divisor - 1)
 
 -- Second, better approach
+
+-- We move the logic into a helper method `go` and 
+-- start with the square root of n.
 isPrime :: Integer -> Bool
 isPrime n
   | n <= 1 = False
-  -- We start with the square root of n
+  -- (floor . sqrt $ fromIntegral n) is kind of wild...
+  -- We start from the right side and convert n into a double,
+  -- then we use the $-operator to skip parentheses and make
+  -- the code more human readible,
+  -- then we take the square root of the double value and finally
+  -- turn it into an integer again, to use it as a starting value
+  -- for our helper method `go`.
   | otherwise = go n (floor . sqrt $ fromIntegral n)
   where
     go :: Integer -> Integer -> Bool
@@ -25,7 +34,6 @@ main = do
   input <- getLine 
   
   let n = read input :: Integer
-  -- print(isPrime n (n - 1))
 
   if isPrime n
     then putStrLn (show n ++ " is a prime number!")
