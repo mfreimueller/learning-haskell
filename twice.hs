@@ -1,5 +1,5 @@
 -- The Art of Functional Programming
--- 3.6.4 Chapter 4: Apply a function twice
+-- 3.6.4 Challenge 4: Apply a function twice
 
 inc :: Int -> Int
 inc x = x + 1
