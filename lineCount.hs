@@ -1,6 +1,5 @@
 import System.IO 
 import Control.Exception (try, IOException)
-import GHC.Read (readField)
 
 countLines :: String -> Int
 countLines = length . lines
